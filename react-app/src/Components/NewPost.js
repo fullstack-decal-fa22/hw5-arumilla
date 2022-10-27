@@ -12,9 +12,9 @@ const NewPost = ({props}) => {
       title,
       body
     })
-
+    
     axios
-      .post('/post', {id: id, title: title, body: body})
+      .post('http://localhost:3002/post', {id: id, title: title, body: body})
       .then(props.createPost());
   }
 

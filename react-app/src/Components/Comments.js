@@ -10,12 +10,12 @@ const Comments = ({ postId, comments: initialComments }) => {
     // Un-comment the lines below to complete your solution
     // ====================
     axios
-      .post('/post/:id/comment', {postId: postId, newComment: newComment}, {params: {postId}})
+      .post('http://localhost:3002/post/${postId}/comment', {postId: postId, newComment: newComment}, {params: {postId}})
       .then((res) => {
         setComments([newComment, ...prevComments]);
         setNewComment("")
       })
-  }
+  } 
 
   return (
     <div style={{ border: '1px solid black'}}>
