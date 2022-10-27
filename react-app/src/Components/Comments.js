@@ -1,8 +1,8 @@
-import {useState} from "react";
+import {React, useState} from "react";
 import axios from "axios";
 
 const Comments = ({ postId, comments: initialComments }) => {
-  const [prevComments, setComments] = useState(initialComments);
+  const [comments, setComments] = useState(initialComments);
   const [newComment, setNewComment] = useState('');
 
   const handleSubmitComment = () => {
@@ -10,9 +10,9 @@ const Comments = ({ postId, comments: initialComments }) => {
     // Un-comment the lines below to complete your solution
     // ====================
     axios
-      .post('http://localhost:3002/post/${postId}/comment', {postId: postId, newComment: newComment}, {params: {postId}})
+      .post(`http://localhost:3002/post/${postId}/comment`, {postId: postId, newComment: newComment}, {params: {postId}})
       .then((res) => {
-        setComments([newComment, ...prevComments]);
+        setComments([newComment, ...comments]);
         setNewComment("")
       })
   } 
